@@ -21,11 +21,18 @@ const blackTheme = {
     'loadButton.fontSize': '12px',
 
     // download button
-    'downloadButton.backgroundColor': '#fdba3b',
-    'downloadButton.border': '1px solid #fdba3b',
-    'downloadButton.color': '#fff',
-    'downloadButton.fontFamily': 'NotoSans, sans-serif',
+    'downloadButton.backgroundColor': '#fff',
+    'downloadButton.border': '1px solid #fff',
+    'downloadButton.color': '#222',
+    'downloadButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
     'downloadButton.fontSize': '12px',
+
+    // save button
+    'saveButton.backgroundColor': '#44D9B8',
+    'saveButton.border': '1px solid #44D9B8',
+    'saveButton.color': '#222',
+    'saveButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
+    'saveButton.fontSize': '12px',
 
     // main icons
     'menu.normalIcon.path': '../dist/svg/icon-b.svg',

@@ -119,6 +119,8 @@ const {
  *       path: 'img/sampleImage.jpg',
  *       name: 'SampleImage'
  *     },
+ *     urlUploadImage?: string;
+ *     idUploadImage?: number;
  *     theme: blackTheme, // or whiteTheme
  *     menu: ['shape', 'filter'],
  *     initMenu: 'filter',

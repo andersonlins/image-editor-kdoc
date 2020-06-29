@@ -15,6 +15,7 @@ var $btns = $('.menu-item');
 var $btnsActivatable = $btns.filter('.activatable');
 var $inputImage = $('#input-image-file');
 var $btnDownload = $('#btn-download');
+var $btnSave = $('#btn-save');
 
 var $btnUndo = $('#btn-undo');
 var $btnRedo = $('#btn-redo');
@@ -147,8 +148,6 @@ var blendColorpicker = tui.colorPicker.create({
     color: '#00FF00'
 });
 
-
-var save = $('#btn-save');
 
 // Common global functions
 // HEX to RGBA
@@ -496,6 +495,26 @@ $btnDownload.on('click', function() {
         saveAs(blob, imageName); // eslint-disable-line
     } else {
         alert('This browser needs a file-server');
+        w = window.open();
+        w.document.body.innerHTML = '<img src="' + dataURL + '">';
+    }
+});
+
+$btnSave.on('click', function() {
+    var imageName = imageEditor.getImageName();
+    var dataURL = imageEditor.toDataURL();
+    var blob, type, w;
+
+    if (supportingFileAPI) {
+        blob = base64ToBlob(dataURL);
+        type = blob.type.split('/')[1];
+        if (imageName.split('.').pop() !== type) {
+            imageName += '.' + type;
+        }
+
+        console.log("blob: " + blob)
+    } else {
+        alert('Error while saving image');
         w = window.open();
         w.document.body.innerHTML = '<img src="' + dataURL + '">';
     }
@@ -921,7 +940,3 @@ imageEditor.loadImageFromURL('img/sampleImage.jpg', 'SampleImage').then(function
 $('.menu').on('selectstart', function() {
     return false;
 });
-
-save.on('click', function() {
-    alert("vai iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii 000");
-})

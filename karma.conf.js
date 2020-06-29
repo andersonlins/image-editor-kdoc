@@ -135,13 +135,6 @@ module.exports = function(config) {
                 rules: [
                     {
                         test: /\.js$/,
-                        include: /src/,
-                        exclude: /node_modules/,
-                        loader: 'eslint-loader',
-                        enforce: 'pre'
-                    },
-                    {
-                        test: /\.js$/,
                         exclude: /(test|node_modules)/,
                         loader: 'istanbul-instrumenter-loader',
                         query: {

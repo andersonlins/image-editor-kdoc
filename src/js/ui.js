@@ -183,6 +183,8 @@ class Ui {
                 path: '',
                 name: ''
             },
+            urlUploadImage: '',
+            idUploadImage: 0,
             locale: {},
             menuIconPath: '',
             menu: ['crop', 'flip', 'rotate', 'draw', 'shape', 'icon', 'text', 'mask', 'filter'],
@@ -199,7 +201,7 @@ class Ui {
      * Set ui container size
      * @param {Object} uiSize - ui dimension
      *   @param {string} uiSize.width - css width property
-     *   @param {string} uiSize.height - css height property 
+     *   @param {string} uiSize.height - css height property
      * @private
      */
     _setUiSize(uiSize = this.options.uiSize) {
@@ -254,7 +256,8 @@ class Ui {
             locale: this._locale,
             biImage: this.theme.getStyle('common.bi'),
             loadButtonStyle: this.theme.getStyle('loadButton'),
-            downloadButtonStyle: this.theme.getStyle('downloadButton')
+            downloadButtonStyle: this.theme.getStyle('downloadButton'),
+            saveButtonStyle: this.theme.getStyle('saveButton')
         }) +
         mainContainer({
             locale: this._locale,
@@ -263,6 +266,7 @@ class Ui {
             headerStyle: this.theme.getStyle('header'),
             loadButtonStyle: this.theme.getStyle('loadButton'),
             downloadButtonStyle: this.theme.getStyle('downloadButton'),
+            saveButtonStyle: this.theme.getStyle('saveButton'),
             submenuStyle: this.theme.getStyle('submenu')
         });
 
@@ -275,6 +279,7 @@ class Ui {
         this._menuElement = selector('.tui-image-editor-menu');
         this._subMenuElement = selector('.tui-image-editor-submenu');
         this._buttonElements = {
+            'save': this._selectedElement.querySelectorAll('.tui-image-editor-save-btn'),
             'download': this._selectedElement.querySelectorAll('.tui-image-editor-download-btn'),
             'load': this._selectedElement.querySelectorAll('.tui-image-editor-load-btn')
         };
@@ -388,9 +393,26 @@ class Ui {
         });
     }
 
+    /**
+     * Add save event
+     * @private
+     */
+    _addSaveEvent() {
+        this.eventHandler.save = () => this._actions.main.save(this.options.urlUploadImage, this.options.idUploadImage);
+        snippet.forEach(this._buttonElements.save, element => {
+            element.addEventListener('click', this.eventHandler.save);
+        });
+    }
+
     _removeDownloadEvent() {
         snippet.forEach(this._buttonElements.download, element => {
             element.removeEventListener('click', this.eventHandler.download);
+        });
+    }
+
+    _removeSaveEvent() {
+        snippet.forEach(this._buttonElements.save, element => {
+            element.removeEventListener('click', this.eventHandler.save);
         });
     }
 
@@ -476,6 +498,7 @@ class Ui {
 
         this._addHelpActionEvent();
         this._addDownloadEvent();
+        this._addSaveEvent();
         this._addMenuEvent();
         this._initMenu();
         this._initMenuEvent = true;
@@ -488,6 +511,7 @@ class Ui {
     _removeUiEvent() {
         this._removeHelpActionEvent();
         this._removeDownloadEvent();
+        this._removeSaveEvent();
         this._removeLoadEvent();
         this._removeMainMenuEvent();
     }

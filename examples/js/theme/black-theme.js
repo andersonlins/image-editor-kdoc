@@ -15,15 +15,22 @@ var blackTheme = {
     'loadButton.backgroundColor': '#fff',
     'loadButton.border': '1px solid #ddd',
     'loadButton.color': '#222',
-    'loadButton.fontFamily': '\'Noto Sans\', sans-serif',
+    'loadButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
     'loadButton.fontSize': '12px',
 
     // download button
-    'downloadButton.backgroundColor': '#fdba3b',
-    'downloadButton.border': '1px solid #fdba3b',
-    'downloadButton.color': '#fff',
-    'downloadButton.fontFamily': '\'Noto Sans\', sans-serif',
+    'downloadButton.backgroundColor': '#fff',
+    'downloadButton.border': '1px solid #fff',
+    'downloadButton.color': '#222',
+    'downloadButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
     'downloadButton.fontSize': '12px',
+
+    // save button
+    'saveButton.backgroundColor': '#44D9B8',
+    'saveButton.border': '1px solid #44D9B8',
+    'saveButton.color': '#222',
+    'saveButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
+    'saveButton.fontSize': '12px',
 
     // main icons
     'menu.normalIcon.color': '#8a8a8a',

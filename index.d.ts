@@ -1,4 +1,4 @@
-// Type definitions for TOAST UI Image Editor v3.9.0
+// Type definitions for TOAST UI Image Editor v1.0.3
 // TypeScript Version: 3.2.2
 
 declare namespace tuiImageEditor {
@@ -159,6 +159,8 @@ declare namespace tuiImageEditor {
             path: string;
             name: string;
         };
+        urlUploadImage?: string;
+        idUploadImage?: number;
         theme?: IThemeConfig;
         menu?: string[];
         initMenu?: string;
@@ -233,14 +235,14 @@ declare namespace tuiImageEditor {
         height?: string;
         width?: string;
     }
-    
+
     interface IImageDimension {
         oldHeight?: number;
         oldWidth?: number;
         newHeight?: number;
         newWidth?: number;
     }
-    
+
     interface IEditorSize {
         uiSize?: IUIDimension,
         imageSize?: IImageDimension

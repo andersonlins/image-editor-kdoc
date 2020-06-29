@@ -11,7 +11,7 @@ body {
 
 .code-description,
 .code-description a {
-    font-family: Arial;
+    font-family: 'Nunito', 'Noto Sans', Arial;
     font-size: 14px;
     color: #515ce6;
 }
