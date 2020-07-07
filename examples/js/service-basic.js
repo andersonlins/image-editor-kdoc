@@ -3,6 +3,8 @@
  * @author NHN Ent. FE Development Team <dl_javascript@nhn.com>
  * @fileoverview
  */
+
+import * as FileSaver from 'file-saver'
 /* eslint-disable vars-on-top,no-var,strict,prefer-template,prefer-arrow-callback,prefer-destructuring,object-shorthand,require-jsdoc,complexity,prefer-const,no-unused-vars */
 var supportingFileAPI = !!(window.File && window.FileList && window.FileReader);
 var rImageType = /data:(image\/.+);base64,/;
@@ -492,7 +494,7 @@ $btnDownload.on('click', function() {
         }
 
         // Library: FileSaver - saveAs
-        saveAs(blob, imageName); // eslint-disable-line
+        FileSaver.saveAs(blob, imageName); // eslint-disable-line
     } else {
         alert('This browser needs a file-server');
         w = window.open();
@@ -505,19 +507,13 @@ $btnSave.on('click', function() {
     var dataURL = imageEditor.toDataURL();
     var blob, type, w;
 
-    if (supportingFileAPI) {
-        blob = base64ToBlob(dataURL);
-        type = blob.type.split('/')[1];
-        if (imageName.split('.').pop() !== type) {
-            imageName += '.' + type;
-        }
-
-        console.log("blob: " + blob)
-    } else {
-        alert('Error while saving image');
-        w = window.open();
-        w.document.body.innerHTML = '<img src="' + dataURL + '">';
+    blob = base64ToBlob(dataURL);
+    type = blob.type.split('/')[1];
+    if (imageName.split('.').pop() !== type) {
+        imageName += '.' + type;
     }
+
+    console.log("blob: " + blob)
 });
 
 // control draw line mode

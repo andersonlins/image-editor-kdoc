@@ -3,6 +3,7 @@ import {isSupportFileApi, base64ToBlob, toInteger} from './util';
 import Imagetracer from './helper/imagetracer';
 
 import $$ from 'jquery';
+import * as FileSaver from 'file-saver'
 
 export default {
 
@@ -102,7 +103,6 @@ export default {
                 if (!isSupportFileApi()) {
                     alert('This browser does not support file-api');
                 }
-
                 this.ui.initializeImgUrl = URL.createObjectURL(file);
                 this.loadImageFromFile(file).then(sizeValue => {
                     exitCropOnAction();
@@ -118,13 +118,13 @@ export default {
                 let imageName = this.getImageName();
                 let blob, type, w;
 
-                if (isSupportFileApi() && window.saveAs) {
+                if (isSupportFileApi() && FileSaver && FileSaver.saveAs) {
                     blob = base64ToBlob(dataURL);
                     type = blob.type.split('/')[1];
                     if (imageName.split('.').pop() !== type) {
                         imageName += `.${type}`;
                     }
-                    saveAs(blob, imageName); // eslint-disable-line
+                    FileSaver.saveAs(blob, imageName); // eslint-disable-line
                 } else {
                     w = window.open();
                     w.document.body.innerHTML = `<img src='${dataURL}'>`;
@@ -135,34 +135,29 @@ export default {
                 let imageName = this.getImageName();
                 let blob, type, w;
 
-                if (isSupportFileApi() && window.saveAs) {
-                    blob = base64ToBlob(dataURL);
-                    type = blob.type.split('/')[1];
-                    if (imageName.split('.').pop() !== type) {
-                        imageName += `.${type}`;
-                    }
-
-                    const formData = new FormData();
-                    const fileData = new File([blob], imageName, {type});
-                    formData.append('file', fileData);
-
-                    if(idUploadImage && idUploadImage > 0) {
-                        urlUploadImage = urlUploadImage + '?idUploadImage=' + idUploadImage;
-                    }
-
-                    $$.ajax({
-                        url: urlUploadImage,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        async: false,
-                        data: formData,
-                        type: 'post'
-                    });
-                } else {
-                    w = window.open();
-                    w.document.body.innerHTML = `<img src='${dataURL}'>`;
+                blob = base64ToBlob(dataURL);
+                type = blob.type.split('/')[1];
+                if (imageName.split('.').pop() !== type) {
+                    imageName += `.${type}`;
                 }
+
+                const formData = new FormData();
+                const fileData = new File([blob], imageName, {type});
+                formData.append('file', fileData);
+
+                if(idUploadImage && idUploadImage > 0) {
+                    urlUploadImage = urlUploadImage + '?idUploadImage=' + idUploadImage;
+                }
+
+                $$.ajax({
+                    url: urlUploadImage,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    async: false,
+                    data: formData,
+                    type: 'post'
+                });
             }
         }, this._commonAction());
     },

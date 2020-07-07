@@ -12,28 +12,30 @@ var whiteTheme = {
     'header.border': '0px',
 
     // load button
-    'loadButton.backgroundColor': '#fff',
-    'loadButton.border': '1px solid #ddd',
-    'loadButton.color': '#222',
+    'loadButton.backgroundColor': '#D8D8D8',
+    'loadButton.border': '1px solid #D8D8D8',
+    'loadButton.color': '#505050',
     'loadButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
-    'loadButton.fontSize': '12px',
+    'loadButton.fontSize': '14px',
+    'loadButton.margin': '0 10px 0 0',
 
     // download button
-    'downloadButton.backgroundColor': '#fff',
-    'downloadButton.border': '1px solid #fff',
-    'downloadButton.color': '#222',
+    'downloadButton.backgroundColor': '#D8D8D8',
+    'downloadButton.border': '1px solid #D8D8D8',
+    'downloadButton.color': '#505050',
     'downloadButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
-    'downloadButton.fontSize': '12px',
+    'downloadButton.fontSize': '14px',
+    'downloadButton.margin': '0 10px 0 0',
 
     // save button
-    'saveButton.backgroundColor': '#44D9B8',
-    'saveButton.border': '1px solid #44D9B8',
-    'saveButton.color': '#222',
+    'saveButton.backgroundColor': '#112F7C',
+    'saveButton.border': '1px solid #112F7C',
+    'saveButton.color': '#FFFFFF',
     'saveButton.fontFamily': '\'Nunito\', \'Noto Sans\', sans-serif',
-    'saveButton.fontSize': '12px',
+    'saveButton.fontSize': '14px',
 
     // main icons
-    'menu.normalIcon.color': '#8a8a8a',
+    'menu.normalIcon.color': 'black',
     'menu.activeIcon.color': '#555555',
     'menu.disabledIcon.color': '#434343',
     'menu.hoverIcon.color': '#e9e9e9',
@@ -41,7 +43,7 @@ var whiteTheme = {
     'menu.iconSize.height': '24px',
 
     // submenu icons
-    'submenu.normalIcon.color': '#8a8a8a',
+    'submenu.normalIcon.color': 'black',
     'submenu.activeIcon.color': '#555555',
     'submenu.iconSize.width': '32px',
     'submenu.iconSize.height': '32px',

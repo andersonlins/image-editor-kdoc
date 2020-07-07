@@ -48,6 +48,12 @@ module.exports = {
             'commonjs2': ['fabric', 'fabric'],
             'amd': 'fabric',
             'root': 'fabric'
+        },
+        'filesaver': {
+            'commonjs': ['filesaver', 'filesaver'],
+            'commonjs2': ['filesaver', 'filesaver'],
+            'amd': 'filesaver',
+            'root': 'filesaver'
         }
     }],
     module: {

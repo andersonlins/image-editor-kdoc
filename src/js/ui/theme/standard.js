@@ -187,13 +187,13 @@ export default {
     'saveButton.fontSize': '12px',
 
     // main icons
-    'menu.normalIcon.color': '#8a8a8a',
+    'menu.normalIcon.color': 'black',
     'menu.activeIcon.color': '#555555',
     'menu.disabledIcon.color': '#434343',
     'menu.hoverIcon.color': '#e9e9e9',
 
     // submenu icons
-    'submenu.normalIcon.color': '#8a8a8a',
+    'submenu.normalIcon.color': 'black',
     'submenu.activeIcon.color': '#e9e9e9',
 
     'menu.iconSize.width': '24px',
@@ -207,7 +207,7 @@ export default {
     'submenu.partition.color': '#3c3c3c',
 
     // submenu labels
-    'submenu.normalLabel.color': '#8a8a8a',
+    'submenu.normalLabel.color': 'black',
     'submenu.normalLabel.fontWeight': 'lighter',
     'submenu.activeLabel.color': '#fff',
     'submenu.activeLabel.fontWeight': 'lighter',

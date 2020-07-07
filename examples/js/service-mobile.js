@@ -6,6 +6,8 @@
 /* eslint-disable vars-on-top,no-var,strict,prefer-template,prefer-arrow-callback,prefer-destructuring,object-shorthand,require-jsdoc,complexity */
 'use strict';
 
+import * as FileSaver from 'file-saver'
+
 var MAX_RESOLUTION = 3264 * 2448; // 8MP (Mega Pixel)
 
 var supportingFileAPI = !!(window.File && window.FileList && window.FileReader);
@@ -339,7 +341,7 @@ $btnDownload.on('click', function() {
         }
 
         // Library: FileSaver - saveAs
-        saveAs(blob, imageName); // eslint-disable-line
+        FileSaver.saveAs(blob, imageName); // eslint-disable-line
     } else {
         alert('This browser needs a file-server');
         w = window.open();
@@ -352,19 +354,13 @@ $btnSave.on('click', function() {
     var dataURL = imageEditor.toDataURL();
     var blob, type, w;
 
-    if (supportingFileAPI) {
-        blob = base64ToBlob(dataURL);
-        type = blob.type.split('/')[1];
-        if (imageName.split('.').pop() !== type) {
-            imageName += '.' + type;
-        }
-
-        console.log("blob: " + blob)
-    } else {
-        alert('Error while saving image');
-        w = window.open();
-        w.document.body.innerHTML = '<img src="' + dataURL + '">';
+    blob = base64ToBlob(dataURL);
+    type = blob.type.split('/')[1];
+    if (imageName.split('.').pop() !== type) {
+        imageName += '.' + type;
     }
+
+    console.log("blob: " + blob)
 });
 
 // Crop menu action

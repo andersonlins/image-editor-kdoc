@@ -1,4 +1,4 @@
-// Type definitions for TOAST UI Image Editor v1.0.3
+// Type definitions for TOAST UI Image Editor v1.0.14
 // TypeScript Version: 3.2.2
 
 declare namespace tuiImageEditor {
@@ -24,6 +24,11 @@ declare namespace tuiImageEditor {
         'downloadButton.color'?: string;
         'downloadButton.fontFamily'?: string;
         'downloadButton.fontSize'?: string;
+        'saveButton.backgroundColor'?: string;
+        'saveButton.border'?: string;
+        'saveButton.color'?: string;
+        'saveButton.fontFamily'?: string;
+        'saveButton.fontSize'?: string;
         'menu.normalIcon.path'?: string;
         'menu.normalIcon.name'?: string;
         'menu.activeIcon.path'?: string;
@@ -312,6 +317,6 @@ declare namespace tuiImageEditor {
     }
 }
 
-declare module 'tui-image-editor' {
+declare module 'tui-image-editor-kdoc' {
     export = tuiImageEditor.ImageEditor;
 }
